@@ -14,7 +14,7 @@ class PunyHuman(models.Model):
 
     name = models.CharField(max_length=70, verbose_name=_('name'))
     weight = models.DecimalField(null=True, blank=True, verbose_name=_('weight'), help_text=_('Weight in pounds.'),
-                                 validators=[MinValueValidator(Decimal('0.01'))])
+                                 validators=[MinValueValidator(Decimal('0.01'))], decimal_places=2, max_digits=6)
     birthday = models.DateField(verbose_name=_('birthday'))
     sex = models.CharField(max_length=20, choices=SEX_CHOICES)
 

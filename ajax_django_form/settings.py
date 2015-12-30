@@ -4,8 +4,6 @@ SECRET_KEY = 'hrphh2k)rj-4fdzzt0a&d57j63e)hovlx8_9$(&yu##14+x(2r'
 
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
@@ -17,6 +15,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'crispy_forms',
+
+    'ajax_django_form.human',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,6 +58,25 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'ajax_django_form', 'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'ajax_django_form', 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]

@@ -1,4 +1,4 @@
-Django==1.7.11
+Django==1.9
 
 # optional but highly recommended
-django-crispy-forms==1.4.0
+django-crispy-forms==1.5.2

@@ -1,18 +1,15 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
+from django.views.static import serve
 
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'ajax_django_form.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
-)
+urlpatterns = [
+    url(r'^human/', include('ajax_django_form.human.urls', namespace='human'))
+]
 
 if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})
-    )
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+    ]
+

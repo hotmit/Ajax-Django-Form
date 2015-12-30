@@ -52,4 +52,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'ajax_django_form', 'static'),
+)
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'ajax_django_form', 'templates'),
+)
